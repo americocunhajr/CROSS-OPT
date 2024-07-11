@@ -8,7 +8,7 @@ xxx
 
 ## Reproducibility
 
-Simulations done with **CE-ABC** are fully reproducible, as can be seen on this <a href="https://codeocean.com/capsule/xxx" target="_blank">CodeOcean capsule</a>.
+Simulations done with **CROSS-OPT** are fully reproducible, as can be seen on this <a href="https://codeocean.com/capsule/xxx" target="_blank">CodeOcean capsule</a>.
 
 ## Authors
 - Marcos Vinicius Issa
