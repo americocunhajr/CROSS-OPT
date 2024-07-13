@@ -21,7 +21,7 @@ We ask the code users to cite the following manuscript in any publications repor
 
 ```
 @article{Issa2024CROSS-OPT,
-   author  = {M. V. Issaand A. Pereira and A {Cunha~Jr}},
+   author  = {M. V. Issa and A. Pereira and A {Cunha~Jr}},
    title   = {The cross-entropy method for nonconvex structural optimization},
    journal = {Under Review},
    year    = {2024},
