@@ -1,7 +1,7 @@
 <img src="logo/CROSS-OPT.png" width="40%">
 
 **CROSS-OPT: Cross-Entropy Optimization for Truss Structures** is a Matlab package that implements a framework for size and shape structural optimization of truss systems. The package leverages the Cross-Entropy (CE) method for global search optimization and employs an augmented Lagrangian formulation to handle equality and inequality constraints. With some straightforward adaptations, the CROSS-OPT strategy can also be applied to other structural systems and optimization problems. More details are in the following paper:
-- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, Nonlinear Dynamics, under review, 2024*
+- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2024 (under review)*
 
 Preprint available at:
 xxx
@@ -17,7 +17,7 @@ Simulations done with **CROSS-OPT** are fully reproducible, as can be seen on th
 
 ## Citing this study
 We ask the code users to cite the following manuscript in any publications reporting work done with our code:
-- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, Nonlinear Dynamics, under review, 2024*
+- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2024 (under review)*
 
 ```
 @article{Issa2024CROSS-OPT,
