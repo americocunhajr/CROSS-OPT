@@ -1,14 +1,55 @@
 ## Cross-Entropy Optimization for Truss Structures
 
-**CROSS-OPT: Cross-Entropy Optimization for Truss Structures** is a Matlab package that implements a framework for size and shape structural optimization of truss systems. The package leverages the Cross-Entropy (CE) method for global search optimization and employs an augmented Lagrangian formulation to handle equality and inequality constraints. With some straightforward adaptations, the CROSS-OPT strategy can also be applied to other structural systems and optimization problems. More details are in the following paper:
-- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2024 (under review)*
+**CROSS-OPT: Cross-Entropy Optimization for Truss Structures** is a Matlab package that implements a framework for size and shape structural optimization of truss systems. The package leverages the Cross-Entropy (CE) method for global search optimization and employs an augmented Lagrangian formulation to handle equality and inequality constraints. With some straightforward adaptations, the CROSS-OPT strategy can also be applied to other structural systems and optimization problems. 
 
 <p align="center">
 <img src="logo/CROSS-OPTframework.png" width="60%">
 </p>
 
-Preprint available at:
-xxx
+**CROSS-OPT** uses as optimization tool the package **CEopt - Cross-Entropy Optimizer**, which can be downloaded at <a href="https://ceopt.org" target="_blank">https://ceopt.org</a>.
+
+### Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Reproducibility](#reproducibility)
+- [Authors](#authors)
+- [Citing CROSS-OPT](#citing-cross-opt)
+- [License](#license)
+- [Institutional support](#institutional-support)
+- [Funding](#funding)
+
+### Overview
+**CROSS-OPT** was developed to solve nonconvex optimization problems involving truss structures. The underlying results are reported in the following publication:
+More details are in the following paper:
+- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2024 (under review)*
+
+Preprint available <a href="https://hal.archives-ouvertes.fr/xxx" target="_blank">here</a>.
+
+### Features
+- 
+
+### Usage
+To get started with **CROSS-OPT**, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/americocunhajr/CROSS-OPT.git
+   ```
+2. Navigate to the code directory:
+   ```bash
+   cd CROSS-OPT/CROSS-OPT-1.0
+   ```
+3. For direct search optimization, execute:
+   ```bash
+   MainXXX
+   ```
+
+This package includes the following files:
+* CrossEntropyOpt_Example.m.  -- script with an one dimensional optimization with the CE method
+
+### Documentation
+The routines in **CROSS-OPT** are well-commented to explain their functionality. Each routine includes a description of its purpose, as well as inputs and outputs. 
 
 ### Reproducibility
 
