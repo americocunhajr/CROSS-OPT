@@ -42,7 +42,7 @@ To get started with **CROSS-OPT**, follow these steps:
    ```
 3. To optimize a structure, execute the main file corresponding to your case:
    ```bash
-   Main_TrussXX_ObjFuncMin_Constraint_Solver
+   Main_TrussXX_ObjFuncMin_ConstraintType_Solver
    ```
 
 This package includes the following files:
