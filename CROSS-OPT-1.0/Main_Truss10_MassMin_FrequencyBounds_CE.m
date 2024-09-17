@@ -64,8 +64,8 @@ MyTruss.Nelem      = size(MyTruss.ELEM ,1); % # of elements
 MyTruss.Ndofs      = 2*MyTruss.Nnodes;      % # of DoFs
 
 % objective and constraint functions
-fun     = @(x)TrussMass           (x,MyTruss);
-nonlcon = @(x)TrussFrequencyBounds(x,MyTruss);
+fun     = @(x)TrussMass10           (x,MyTruss);
+nonlcon = @(x)TrussFrequencyBounds10(x,MyTruss);
 
 % number of variables
 Nvars = 10;

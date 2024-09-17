@@ -73,7 +73,7 @@ MyTruss.Nelem      = size(MyTruss.ELEM ,1); % # of elements
 MyTruss.Ndofs      = 2*MyTruss.Nnodes;      % # of DoFs
 
 % objective and constraint functions
-fun     = @(x)TrussMass       (x,MyTruss);
+fun     = @(x)TrussMass10     (x,MyTruss);
 nonlcon = @(x)TrussYieldStress(x,MyTruss);
 
 % number of variables
@@ -88,7 +88,7 @@ xmean0 = 0.5*(ub+lb);
 sigma0 = 5*(ub-lb);
 
 % number of box plot samples
-Nbp = 125;
+Nbp = 64;
 
 % boxplot for CE
 % ------------------------------------------------------------------
@@ -184,16 +184,16 @@ Fcount_SQP = zeros(Nbp,1);
 % optional parameters
 opt = optimoptions('fmincon','Display','off','Algorithm','sqp');
 
-% random initial guess
-x0 = lb + (ub-lb).*rand(1,Nvars);
-
 while t < Nbp
+        % random initial guess
+        x0 = lb + (ub-lb).*rand(1,Nvars);
+        
         % SPQ solver
         [Xopt,Fopt,ExitFlag,SQPstr] = fmincon(fun,x0,[],[],[],[],lb,ub,nonlcon,opt);
-
+        
         % update solver running counter
         Nrun_SQP = Nrun_SQP + 1;
-
+        
         % check constraint violation
         if max(nonlcon(Xopt)) <= opt.TolCon
                           t = t + 1;
@@ -203,6 +203,21 @@ while t < Nbp
         end
 end
 Xopt_SPQ_m = median(Xopt_SQP)
+toc
+% ------------------------------------------------------------------
+
+
+% save simulation results
+% ------------------------------------------------------------------
+tic
+disp(' ')
+disp(' --- saving simulation results --- ');
+disp(' ');
+disp('    ... ');
+disp(' ');
+
+save('Truss10_MassMin_YieldStress_BoxPlot.mat');
+
 toc
 % ------------------------------------------------------------------
 
@@ -218,7 +233,7 @@ disp(' ')
 figure
 x = [Fopt_SQP Fopt_GA Fopt_CE];
 boxplot(x,'Notch','off','Labels',{'SQP','GA','CE'});
-ylabel('Truss Mass (kg)','FontSize',20,'FontName', 'Helvetica')
+ylabel('Truss   Mass (kg)','FontSize',20,'FontName', 'Helvetica')
 title("Number samples: " + Nbp, 'FontSize',20,'FontName', 'Helvetica')
 set(gca, 'FontName', 'Helvetica');
 set(gca, 'FontSize', 18);

@@ -1,5 +1,5 @@
 % -----------------------------------------------------------------
-%  Main_Truss10_MassMin_FrequencyBounds_BoxPlot.m
+%  Main_Truss37_MassMin_FrequencyBounds_BoxPlot.m
 % -----------------------------------------------------------------
 %  programmers: Marcos Vinicius Issa
 %               Anderson Pereira
@@ -8,7 +8,7 @@
 %  Originally programmed in: Jun 25, 2024
 %           Last updated in: Sep 15, 2024
 % -----------------------------------------------------------------
-% ﻿ Mass minimization with frequency constraints for a 10 bars
+% ﻿ Mass minimization with frequency constraints for a 37 bars
 %  truss structure. Box plot calculation for CE, GA and SQP.
 % -----------------------------------------------------------------
 
@@ -16,64 +16,123 @@
 clc; clear; close all;
 
 disp(' ---------------------------------------------- ')
-disp(' Main_Truss10_MassMin_FrequencyBounds_BoxPlot.m ')
+disp(' Main_Truss37_MassMin_FrequencyBounds_BoxPlot.m ')
 disp(' ---------------------------------------------- ')
 
 % random number generator (fix the seed for reproducibility)
 rng_stream = RandStream('mt19937ar','Seed',30081984);
 RandStream.setGlobalStream(rng_stream);
 
-% convertion factors
-Inch2Meter  = 0.0254;    % inch to meter  factor
-
 % truss parameters
-l1         = 360.0*Inch2Meter;  % 1st length (m)
-l2         = 360.0*Inch2Meter;  % 2nd length (m)
-h          = 360.0*Inch2Meter;  % height (m)
-rho        = 2770.0;            % material density (kg/m^3)
-E          = 69.8e9;            % elastic modulus (Pa)
-AddedMass  = 454.0;             % added mass (kg)
-omegaTresh = 2*pi*[7 15 20]';   % treshold frequencies (rad/s)
+a          = 1.0;               % bar length (m)
+h          = 1.0;               % truss height (m)
+rho        = 7800.0;            % material density (kg/m^3)
+E          =  210.0e9;          % elastic modulus (Pa)
+AddedMass  = 10.0;              % added mass (kg)
+omegaTresh = 2*pi*[20 40 60]';  % treshold frequencies (rad/s)
 
 % sctruct with the truss parameters
-MyTruss.l1         = l1;           % 1st length (m)
-MyTruss.l2         = l2;           % 2nd length (m)
-MyTruss.h          = h;            % height (m)
+MyTruss.a          = a;            % bar length (m)
+MyTruss.h          = h;            % truss height (m)
 MyTruss.rho        = rho;          % material density (kg/m^3)
 MyTruss.E          = E;            % elastic modulus (Pa)
 MyTruss.AddedMass  = AddedMass;    % added mass (kg)
 MyTruss.omegaTresh = omegaTresh;   % treshold frequencies (rad/s)
-MyTruss.FixedDoFs  = [9 10 11 12]; % Diriclet boundary condition DoFs
-MyTruss.NODES      = [(l1+l2),h;   % nodes coordinates
-                      (l1+l2),0;
-                       l1    ,h;
-                       l1    ,0;
-                        0    ,l1;
-                        0    ,0];
-MyTruss.ELEM       = [5,3;         % element nodes
-                      3,1; 
-                      6,4; 
-                      4,2; 
-                      4,3; 
-                      2,1; 
-                      5,4; 
-                      3,6; 
-                      3,2; 
-                      1,4];
+MyTruss.FixedDoFs  = [1 2 40];     % Diriclet boundary condition DoFs
+MyTruss.NODES      = [  0 0;       % nodes coordinates
+                        a 0;
+                        a h;
+                      2*a 0;
+                      2*a h;
+                      3*a 0;
+                      3*a h;
+                      4*a 0;
+                      4*a h;
+                      5*a 0;
+                      5*a h;
+                      6*a 0;
+                      6*a h;
+                      7*a 0;
+                      7*a h;
+                      8*a 0;
+                      8*a h;
+                      9*a 0;
+                      9*a h;
+                     10*a 0];
+MyTruss.ELEM       = [ 1  3;         % element nodes
+                       2  3;
+                       3  4;
+                       3  5;
+                       4  5;
+                       5  6;
+                       5  7;
+                       6  7;
+                       7  8;
+                       7  9;
+                       8  9;
+                       9 10;
+                       9 11;
+                      10 11;
+                      10 13;
+                      11 13;
+                      12 13;
+                      12 15;
+                      13 15;
+                      14 15;
+                      14 17;
+                      15 17;
+                      16 17;
+                      16 19;
+                      17 19;
+                      18 19;
+                      19 20;
+                       1  2;
+                       2  4;
+                       4  6;
+                       6  8;
+                       8 10;
+                      10 12;
+                      12 14;
+                      14 16;
+                      16 18;
+                      18 20];
+MyTruss.SYMBARS    = {[ 1 27];       % symmetrical bars
+                      [ 2 26];
+                      [ 3 24];
+                      [ 4 25];
+                      [ 5 23];
+                      [ 6 21];
+                      [ 7 22];
+                      [ 8 20];
+                      [ 9 18];
+                      [10 19];
+                      [11 17];
+                      [12 15];
+                      [13 16];
+                      [14 14];
+                       28:37};
 MyTruss.Nnodes     = size(MyTruss.NODES,1); % # of nodes
 MyTruss.Nelem      = size(MyTruss.ELEM ,1); % # of elements
 MyTruss.Ndofs      = 2*MyTruss.Nnodes;      % # of DoFs
 
-% objective and constraint functions
-fun     = @(x)TrussMass10           (x,MyTruss);
-nonlcon = @(x)TrussFrequencyBounds10(x,MyTruss);
+% number of design variables of each kind
+NvarsA         = size(MyTruss.SYMBARS,1);
+NvarsH         = 5;
+MyTruss.NvarsA = NvarsA;
+MyTruss.NvarsH = NvarsH;
+Nvars          = NvarsA + NvarsH;
 
-% number of variables
-Nvars = 10;
+% objective and constraint functions
+fun     = @(x)TrussMass37           (x,MyTruss);
+nonlcon = @(x)TrussFrequencyBounds37(x,MyTruss);
 
 % lower and upper bounds for design variables
-lb =  0.1*ones(1,Nvars)*Inch2Meter^2;
-ub = 20.0*ones(1,Nvars)*Inch2Meter^2;
+lb_A =  100.0*ones(1,NvarsA)*1e-6;  % unit: m^2
+ub_A = 1000.0*ones(1,NvarsA)*1e-6;  % unit: m^2
+lb_H =    0.1*ones(1,NvarsH);       % unit: m
+ub_H =   10.0*ones(1,NvarsH);       % unit: m
+lb   = [lb_A lb_H];
+ub   = [ub_A ub_H];
 
 % initial mean and standard deviation
 xmean0 = 0.5*(ub+lb);
@@ -208,7 +267,7 @@ disp(' ');
 disp('    ... ');
 disp(' ');
 
-save('Truss10_MassMin_FrequencyBounds_BoxPlot.mat');
+save('Truss37_MassMin_FrequencyBounds_BoxPlot.mat');
 
 toc
 % -----------------------------------------------------------
