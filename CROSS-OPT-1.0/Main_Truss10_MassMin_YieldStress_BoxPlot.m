@@ -230,21 +230,38 @@ disp(' Post processing ... ')
 disp(' ------------------- ')
 disp(' ')
 
-figure
-x = [Fopt_SQP Fopt_GA Fopt_CE];
-boxplot(x,'Notch','off','Labels',{'SQP','GA','CE'});
-ylabel('Truss   Mass (kg)','FontSize',20,'FontName', 'Helvetica')
-title("Number samples: " + Nbp, 'FontSize',20,'FontName', 'Helvetica')
-set(gca, 'FontName', 'Helvetica');
-set(gca, 'FontSize', 18);
-box on
+% ..........................................................
+graphobj1.gname     = 'Truss10_MassMin_YieldStress_BoxPlot_Fopt';
+graphobj1.gtitle    = 'Objetive Function';
+graphobj1.xmin      = 'auto';
+graphobj1.xmax      = 'auto';
+graphobj1.ymin      = 'auto';
+graphobj1.ymax      = 'auto';
+graphobj1.xlab      = [];
+graphobj1.ylab      = 'Truss Mass (kg)';
+graphobj1.leg1      = 'CE';
+graphobj1.leg2      = 'GA';
+graphobj1.leg3      = 'SQP';
+graphobj1.print     = 'yes';
+graphobj1.close     = 'no';
+Fig1 = PlotBoxComparison(Fopt_CE,Fopt_GA,Fopt_SQP,graphobj1);
+% ..........................................................
 
-figure
-x = [Fcount_SQP Fcount_GA Fcount_CE];
-boxplot(x,'Notch','off','Labels',{'SQP','GA','CE'});
-ylabel('Function Evaluations','FontSize',20,'FontName', 'Helvetica')
-title("Number samples: " + Nbp, 'FontSize',20,'FontName', 'Helvetica')
-set(gca, 'FontName', 'Helvetica');
-set(gca, 'FontSize', 18);
-box on
+% ..........................................................
+graphobj2.gname     = 'Truss10_MassMin_YieldStress_BoxPlot_Fcount';
+graphobj2.gtitle    = 'Computational Cost';
+graphobj2.xmin      = 'auto';
+graphobj2.xmax      = 'auto';
+graphobj2.ymin      = 'auto';
+graphobj2.ymax      = 'auto';
+graphobj2.xlab      = [];
+graphobj2.ylab      = 'Function Evaluations';
+graphobj2.leg1      = 'CE';
+graphobj2.leg2      = 'GA';
+graphobj2.leg3      = 'SQP';
+graphobj2.print     = 'yes';
+graphobj2.close     = 'no';
+Fig2 = PlotBoxComparison(Fcount_CE,Fcount_GA,Fcount_SQP,graphobj2);
+% ..........................................................
+
 % ------------------------------------------------------------------
