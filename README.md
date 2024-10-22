@@ -49,9 +49,15 @@ This package includes the following files:
 * Main_Truss10_MassMin_YieldStress_CE.m  -- Mass minimization with yield stress constraints for a 10 bars truss using CE
 * Main_Truss10_MassMin_YieldStress_GA.m  -- Mass minimization with yield stress constraints for a 10 bars truss using GA
 * Main_Truss10_MassMin_YieldStress_SPQ.m  -- Mass minimization with yield stress constraints for a 10 bars truss using SQP
+* Main_Truss10_MassMin_YieldStress_BoxPlot.m -- BoxPlot for mass minimization with yield stress constraints for a 10 bars truss
 * Main_Truss10_MassMin_FrequencyBounds_CE.m  -- Mass minimization with frequency constraints for a 10 bars truss using CE
 * Main_Truss10_MassMin_FrequencyBounds_GA.m  -- Mass minimization with frequency constraints for a 10 bars truss using GA
 * Main_Truss10_MassMin_FrequencyBounds_SQP.m  -- Mass minimization with frequency constraints for a 10 bars truss using SQP
+* Main_Truss10_MassMin_FrequencyBounds_BoxPlot.m -- BoxPlot for mass minimization with frequency constraints for a 10 bars truss
+* Main_Truss37_MassMin_FrequencyBounds_CE.m  -- Mass minimization with frequency constraints for a 37 bars truss using CE
+* Main_Truss37_MassMin_FrequencyBounds_GA.m  -- Mass minimization with frequency constraints for a 37 bars truss using GA
+* Main_Truss37_MassMin_FrequencyBounds_SQP.m  -- Mass minimization with frequency constraints for a 37 bars truss using SQP
+* Main_Truss37_MassMin_FrequencyBounds_BoxPlot.m -- BoxPlot for mass minimization with frequency constraints for a 37 bars truss
 
 ### Documentation
 The routines in **CROSS-OPT** are well-commented to explain their functionality. Each routine includes a description of its purpose, as well as inputs and outputs. 
