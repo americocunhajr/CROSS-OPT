@@ -46,6 +46,7 @@ To get started with **CROSS-OPT**, follow these steps:
    ```
 
 This package includes the following files:
+* CEopt -- Cross-entropy solver
 * Main_Truss10_MassMin_YieldStress_CE.m  -- Mass minimization with yield stress constraints for a 10 bars truss using CE
 * Main_Truss10_MassMin_YieldStress_GA.m  -- Mass minimization with yield stress constraints for a 10 bars truss using GA
 * Main_Truss10_MassMin_YieldStress_SPQ.m  -- Mass minimization with yield stress constraints for a 10 bars truss using SQP
