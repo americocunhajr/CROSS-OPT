@@ -95,8 +95,8 @@ We ask the code users to cite the following manuscript in any publications repor
 
 ### Institutional support
 
-<img src="logo/logo_uerj_color.jpeg" width="10%"> &nbsp; &nbsp; <img src="logo/logo_pucrio_color.jpg" width="07%">
+<img src="logo/logo_uerj.png" width="13%"> &nbsp; &nbsp; <img src="logo/logo_pucrio.png" width="9%">
 
 ### Funding
 
-<img src="logo/cnpq.png" width="20%"> &nbsp; &nbsp; <img src="logo/capes.png" width="10%">  &nbsp; &nbsp; &nbsp; <img src="logo/faperj.jpg" width="20%">
+<img src="logo/cnpq.png" width="20%"> &nbsp; &nbsp; <img src="logo/capes.png" width="10%">  &nbsp; &nbsp; &nbsp; <img src="logo/faperj.png" width="20%">
