@@ -23,7 +23,7 @@
 ### Overview
 **CROSS-OPT** was developed to solve nonconvex optimization problems involving truss structures. The underlying results are reported in the following publication:
 More details are in the following paper:
-- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2024 (under review)*
+- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2025 (under review)*
 
 Preprint available <a href="https://hal.archives-ouvertes.fr/xxx" target="_blank">here</a>.
 
@@ -74,14 +74,14 @@ Simulations done with **CROSS-OPT** are fully reproducible, as can be seen on th
 
 ### Citing CROSS-OPT
 We ask the code users to cite the following manuscript in any publications reporting work done with our code:
-- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2024 (under review)*
+- *M. V. Issa, A. Pereira and A. Cunha Jr, The cross-entropy method for nonconvex structural optimization, 2025 (under review)*
 
 ```
-@article{Issa2024CROSS-OPT,
+@article{Issa2025CROSS-OPT,
    author  = {M. V. Issa and A. Pereira and A {Cunha~Jr}},
    title   = {The cross-entropy method for nonconvex structural optimization},
    journal = {Under Review},
-   year    = {2024},
+   year    = {2025},
    volume  = {~},
    pages   = {~},
    doi    = {~},
